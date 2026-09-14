@@ -31,6 +31,18 @@ Pages redeploys on push. Netlify, Cloudflare Pages and Vercel all work the same
 way — point them at the repo, leave the build command empty and the publish
 directory as the root.
 
+## QR code
+
+`qr/picklestack-card.png` is a printable card for the noticeboard at the courts,
+and `qr/picklestack-qr.png` is the bare code for putting in a chat or a poster.
+Both point at the Pages URL.
+
+If the site ever moves, edit `URL` at the top of `qr/make_qr.py` and re-run it:
+
+```bash
+python3 qr/make_qr.py
+```
+
 ## No accounts, by design
 
 There is no sign-up, no login and no server holding anyone's data. Each person
