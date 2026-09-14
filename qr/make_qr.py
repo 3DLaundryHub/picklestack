@@ -13,6 +13,10 @@ from qrcode.constants import ERROR_CORRECT_Q
 from PIL import Image, ImageDraw, ImageFont
 
 URL = "https://3dlaundryhub.github.io/picklestack/"
+
+# The card carries the name, not the address: the host account is unrelated to
+# pickleball and reads oddly on a noticeboard. Set True to print it anyway.
+SHOW_URL = False
 HERE = pathlib.Path(__file__).parent
 
 INK = (14, 39, 35)        # app --ink, near-black with a green cast
@@ -56,18 +60,21 @@ def centre(text, f, y, fill):
     w = d.textbbox((0, 0), text, font=f)[2]
     d.text(((W - w) / 2, y), text, font=f, fill=fill)
 
-centre("PickleStack", title, 120, INK)
-centre("Pickleball rounds, scores & standings", sub, 240, MUTED)
+centre("PickleStack", title, 140, INK)
+centre("Pickleball rounds, scores & standings", sub, 268, MUTED)
 
-size = 760
+size = 820
 code_img = code.resize((size, size), Image.LANCZOS)
-card.paste(code_img, ((W - size) // 2, 350))
+card.paste(code_img, ((W - size) // 2, 380))
 
-centre("3dlaundryhub.github.io/picklestack", addr, 1200, TEAL)
-centre("Scan to open. No app, no sign-in.", foot, 1270, MUTED)
+y = 1265
+if SHOW_URL:
+    centre(URL.replace("https://", "").rstrip("/"), addr, y, TEAL)
+    y += 68
+centre("Scan to open. No app, no sign-in.", foot, y, MUTED)
 
 # an optic-yellow rule, the one flash of colour the app uses for a live court
-d.rounded_rectangle([(W - 180) / 2, 1370, (W + 180) / 2, 1380], radius=5, fill=(214, 230, 60))
+d.rounded_rectangle([(W - 180) / 2, y + 96, (W + 180) / 2, y + 106], radius=5, fill=(214, 230, 60))
 
 card.save(HERE / "picklestack-card.png")
 
