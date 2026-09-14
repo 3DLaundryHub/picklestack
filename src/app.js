@@ -644,9 +644,29 @@
         }).join("");
     }).join("") : '<p class="muted">No completed matches in this session.</p>';
 
+    /* That night's final table, so an old session can be read back without
+       having to make it the open one. */
+    const rows = Store.standingsFor(sess).filter(function (r) { return r.gp > 0; });
+    const table = rows.length
+      ? '<table class="table compact"><thead><tr>' +
+          '<th>#</th><th>Player</th><th>W–L</th><th>Pts</th><th>+/−</th>' +
+        '</tr></thead><tbody>' +
+        rows.map(function (r) {
+          return '<tr' + (r.rank === 1 ? ' class="lead"' : '') + '>' +
+            '<td>' + r.rank + '</td><td>' + esc(r.name) + '</td>' +
+            '<td>' + r.w + '–' + r.l + '</td><td>' + r.pf + '</td>' +
+            '<td class="' + (r.diff > 0 ? 'pos' : r.diff < 0 ? 'neg' : '') + '">' +
+              (r.diff > 0 ? '+' : '') + r.diff + '</td></tr>';
+        }).join("") +
+        '</tbody></table>'
+      : '<p class="muted">No scores were recorded in this session.</p>';
+
     return sheetShell(esc(sess.name), esc(d8full(sess.date)) + " · " + plural(recs.length, "game"),
+      '<div class="label" style="margin:0 0 6px">Final standings</div>' +
+      table +
+      '<div class="label" style="margin:20px 0 2px">Every match</div>' +
       body +
-      '<div class="row" style="margin-top:16px;gap:8px">' +
+      '<div class="row" style="margin-top:16px;gap:8px;flex-wrap:wrap">' +
         '<button class="btn primary" data-act="openSession:' + sess.id + '">Open this session</button>' +
         '<button class="btn" data-act="closeSheet">Done</button>' +
       '</div>');

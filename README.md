@@ -151,8 +151,9 @@ time, this year, the last 90 days or the last 30.
   with the partner, the opponents, the score, the date and which session and
   round it came from.
 - **Session by session** — every session grouped by month, with its date, size
-  and winner. Tap one to read back every completed match in it, round by round,
-  or reopen it to keep playing.
+  and winner. Tap one to see that night's final standings and every completed
+  match, round by round, without disturbing whichever session is currently open.
+  Reopen it from there if you want to keep playing it.
 
 A session appears in history once it has players in it — an untouched one that
 was created and never used is not a session anyone played.

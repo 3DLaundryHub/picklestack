@@ -231,6 +231,8 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 
 /* ---------- standings ---------- */
 .table{width:100%;font-size:14px;min-width:520px}
+.table.compact{min-width:0;font-size:13.5px}
+.table.compact td,.table.compact th{padding-left:6px;padding-right:6px}
 .table th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
   font-weight:700;text-align:right;padding:0 8px 8px;white-space:nowrap}
 .table th:first-child,.table th:nth-child(2){text-align:left}
