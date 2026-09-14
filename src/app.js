@@ -236,7 +236,7 @@
         '<div class="field">' +
           '<label class="label" for="addnames">Add players</label>' +
           '<textarea class="input" id="addnames" data-focus-key="addnames" rows="2" ' +
-            'placeholder="Maya&#10;Dan, Priya, Jonas"></textarea>' +
+            'placeholder="Type a name and press Enter&#10;or paste a list, one per line"></textarea>' +
         '</div>' +
         '<div class="row" style="margin-top:10px">' +
           '<button class="btn primary" data-act="addPlayers">Add to roster</button>' +

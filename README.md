@@ -154,8 +154,8 @@ time, this year, the last 90 days or the last 30.
   and winner. Tap one to read back every completed match in it, round by round,
   or reopen it to keep playing.
 
-The built-in sample session is excluded from all of it, so the record only ever
-contains real play.
+A session appears in history once it has players in it — an untouched one that
+was created and never used is not a session anyone played.
 
 ## Dialogs
 

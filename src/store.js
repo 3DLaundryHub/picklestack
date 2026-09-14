@@ -105,30 +105,6 @@ const Store = (function () {
     state.version = 2;
   }
 
-  /* ---------------- sample session ---------------- */
-  function sampleSession() {
-    const s = newSession({ name: "Saturday Morning Social", courts: 2, sample: true });
-    ["Maya", "Dan", "Priya", "Jonas", "Grace", "Tobi", "Renee", "Marco", "Ines", "Sam"]
-      .forEach(function (n) { s.players.push({ id: uid("p"), name: n, active: true }); });
-    const seeded = [
-      [[0, 5], [2, 7], [11, 9]], [[1, 6], [3, 8], [11, 7]],
-      [[2, 9], [0, 4], [11, 8]], [[3, 5], [1, 7], [9, 11]]
-    ];
-    for (let r = 0; r < 4; r++) {
-      const built = Sched.buildRound(s, standingsFor(s));
-      if (built.error) break;
-      built.matches.forEach(function (m, i) {
-        const sc = seeded[r] && seeded[r][i];
-        if (sc) { m.a = sc[0]; m.b = sc[1]; m.done = true; }
-      });
-      s.rounds.push({ id: uid("r"), matches: built.matches, sitting: built.sitting, createdAt: Date.now() });
-    }
-    // leave the last round live so the page opens mid-session
-    const last = s.rounds[s.rounds.length - 1];
-    if (last) last.matches.forEach(function (m) { m.a = null; m.b = null; m.done = false; });
-    return s;
-  }
-
   /* ---------------- standings ---------------- */
   function standingsFor(session) {
     if (!session) return [];
@@ -288,7 +264,11 @@ const Store = (function () {
     const cut = cutoffFor(scope);
     return Object.keys(state.sessions)
       .map(function (k) { return state.sessions[k]; })
-      .filter(function (s) { return !s.sample && (!cut || (s.date || "") >= cut); })
+      // an untouched session is not history yet; one with players in it is
+      .filter(function (s) {
+        if (s.sample || !(s.players.length || s.rounds.length)) return false;
+        return !cut || (s.date || "") >= cut;
+      })
       .sort(function (a, b) {
         if (a.date !== b.date) return a.date < b.date ? 1 : -1;
         return (b.createdAt || 0) - (a.createdAt || 0);
@@ -378,10 +358,11 @@ const Store = (function () {
       state = readLocal();
       if (!state) {
         state = blank();
-        const s = sampleSession();
+        const s = newSession({ name: "Pickleball Session" });
         state.sessions[s.id] = s;
         state.activeId = s.id;
-        state.round = Math.max(0, s.rounds.length - 1);
+        state.round = 0;
+        state.view = "roster";
         writeLocal();
       }
       if (!state.view) state.view = "matches";
