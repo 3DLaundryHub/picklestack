@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble the PickleStack sources into two deliverables:
+"""Assemble the House of Picklers sources into two deliverables:
 
   index.html          a standalone page (double-click to open, works offline)
   dist/artifact.html  the same page without the outer document wrapper,
@@ -29,8 +29,8 @@ standalone = (
     '<!doctype html>\n<html lang="en">\n<head>\n'
     '<meta charset="utf-8">\n'
     '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-    '<meta name="description" content="Roster in, rounds out: PickleStack builds pickleball rotations, records scores and keeps the standings live.">\n'
-    '<meta name="theme-color" content="#0B8375">\n'
+    '<meta name="description" content="Roster in, rounds out: House of Picklers builds pickleball rotations, records scores and keeps the standings live.">\n'
+    '<meta name="theme-color" content="#098476">\n'
     '%s<style>\n%s</style>\n</head>\n<body>\n%s%s</body>\n</html>\n'
 ) % (head, css, body, scripts)
 

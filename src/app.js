@@ -1,5 +1,5 @@
 /* ===========================================================
-   PickleStack — interface
+   House of Picklers — interface
    =========================================================== */
 (function () {
   "use strict";
@@ -129,7 +129,7 @@
     return '' +
       '<header class="topbar">' +
         '<div class="topbar-row">' +
-          '<div class="brand"><span class="ball"></span>PickleStack</div>' +
+          '<div class="brand"><span class="ball"></span>House of Picklers</div>' +
           syncPill() +
           '<button class="icon-btn" data-act="sheet:sessions" aria-label="Switch session" title="Sessions">' + iconStack() + '</button>' +
           '<button class="icon-btn" data-act="sheet:settings" aria-label="Session settings" title="Settings">' + iconGear() + '</button>' +
@@ -182,7 +182,7 @@
     return '<div class="hero">' +
       '<div class="court-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
       '<h1>Every name in, every pairing out.</h1>' +
-      '<p>Type in who showed up. PickleStack builds each round so people keep meeting new partners and new opponents, then keeps the table honest as the scores come in.</p>' +
+      '<p>Type in who showed up. House of Picklers builds each round so people keep meeting new partners and new opponents, then keeps the table honest as the scores come in.</p>' +
       '<div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap">' +
         '<button class="btn primary" data-act="sheet:new">Start a session</button>' +
         '<button class="btn" data-act="sheet:import">Open a saved file</button>' +
@@ -804,12 +804,12 @@
           '<button class="btn danger" data-act="deleteSession:' + sess.id + '">Delete session</button>' +
         '</div>' +
         '<p class="mono muted" style="font-size:11.5px;text-align:center;margin-top:6px">' +
-          'PickleStack · build ' + BUILD + '</p>' +
+          'House of Picklers · build ' + BUILD + '</p>' +
       '</div>');
   }
 
   function importSheet() {
-    return sheetShell("Open a session file", "Paste the contents of a PickleStack file, or pick it from your device.",
+    return sheetShell("Open a session file", "Paste the contents of a House of Picklers file, or pick it from your device.",
       '<div class="stack">' +
         '<input type="file" accept="application/json,.json" class="input" id="imp-file" data-act="importFile">' +
         '<textarea class="input" id="imp-text" rows="6" data-focus-key="imp-text" placeholder="…or paste the JSON here"></textarea>' +
@@ -1068,12 +1068,12 @@
     }
     if (cmd === "export") {
       const sess2 = Store.session();
-      const fname = (sess2 ? sess2.name.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase() : "picklestack") + ".json";
+      const fname = (sess2 ? sess2.name.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase() : "house-of-picklers") + ".json";
       saveFile(fname, Store.exportJSON());
       return;
     }
     if (cmd === "backup") {
-      saveFile("picklestack-backup-" + Store.todayISO() + ".json", Store.exportAll());
+      saveFile("house-of-picklers-backup-" + Store.todayISO() + ".json", Store.exportAll());
       return;
     }
     if (cmd === "importText") {

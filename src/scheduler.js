@@ -1,5 +1,5 @@
 /* ===========================================================
-   PickleStack — rotation engine
+   House of Picklers — rotation engine
    Builds rounds that maximise how many different people each
    player partners with and plays against, while keeping games
    played and sit-outs even across the roster.

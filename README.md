@@ -1,4 +1,4 @@
-# PickleStack
+# House of Picklers
 
 A pickleball session manager: type in who showed up, generate rounds that keep
 rotating partners and opponents, record scores, and watch the standings update
@@ -33,8 +33,8 @@ directory as the root.
 
 ## QR code
 
-`qr/picklestack-card.png` is a printable card for the noticeboard at the courts,
-and `qr/picklestack-qr.png` is the bare code for putting in a chat or a poster.
+`qr/house-of-picklers-card.png` is a printable card for the noticeboard at the
+courts, and `qr/house-of-picklers-qr.png` is the bare code for putting in a chat or a poster.
 Both point at the Pages URL.
 
 If the site ever moves, edit `URL` at the top of `qr/make_qr.py` and re-run it:
@@ -181,7 +181,8 @@ it either way.
 
 ## Data
 
-Everything lives in `localStorage` under `picklestack.v1` — sessions, the player
+Everything lives in `localStorage` under `picklestack.v1` (the key predates the
+rename and is deliberately unchanged, so nobody loses saved sessions) — sessions, the player
 directory and your history. That is per-browser, so it survives reloads and
 phone restarts but not clearing site data.
 

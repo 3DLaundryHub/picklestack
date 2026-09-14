@@ -1,5 +1,5 @@
 /* ===========================================================
-   PickleStack — state, standings and persistence
+   House of Picklers — state, standings and persistence
    Saves to this device immediately; when the page runs as a
    published artifact it also mirrors to the shared store so
    everyone at the courts sees the same scoreboard.
@@ -700,7 +700,7 @@ const Store = (function () {
       }
       const s = parsed && parsed.session ? parsed.session : parsed;
       if (!s || !Array.isArray(s.players) || !Array.isArray(s.rounds)) {
-        return { error: "No PickleStack session found in that file." };
+        return { error: "No House of Picklers session found in that file." };
       }
       s.id = s.id || uid("s");
       s.rev = Date.now();

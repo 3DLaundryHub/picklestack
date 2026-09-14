@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Roster in, rounds out: PickleStack builds pickleball rotations, records scores and keeps the standings live.">
-<meta name="theme-color" content="#0B8375">
-<title>PickleStack</title>
+<meta name="description" content="Roster in, rounds out: House of Picklers builds pickleball rotations, records scores and keeps the standings live.">
+<meta name="theme-color" content="#098476">
+<title>House of Picklers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
@@ -13,29 +13,29 @@
 /* ---------- tokens ---------- */
 :root{
   color-scheme: light;
-  --ground:#F5F9F8;
+  --ground:#F2FBF8;
   --surface:#FFFFFF;
-  --surface-2:#EFF7F5;
-  --sunk:#E2F0EC;
-  --line:#CDE4DE;
-  --line-soft:#E3F0EC;
-  --ink:#0E2723;
-  --ink-2:#37544D;
-  --muted:#5D7D75;
-  --accent:#0B8375;
-  --accent-bright:#19C2AC;
+  --surface-2:#E9F8F3;
+  --sunk:#D8F2EA;
+  --line:#B9E6DA;
+  --line-soft:#DBF2EA;
+  --ink:#0C2A25;
+  --ink-2:#2F544B;
+  --muted:#54786E;
+  --accent:#098476;
+  --accent-bright:#0FD9BE;
   --accent-ink:#FFFFFF;
-  --accent-soft:#D3F2EB;
-  --optic:#D6E63C;
-  --optic-ink:#2B3406;
-  --sun:#F5A524;
-  --sun-soft:#FFF1D8;
-  --win:#0C7F50;
-  --win-soft:#D6F5E6;
-  --loss:#C24529;
-  --loss-soft:#FDE5DF;
-  --warn:#A5650A;
-  --shadow:0 1px 2px rgba(14,39,35,.04), 0 10px 24px -16px rgba(14,39,35,.28);
+  --accent-soft:#C6F7EC;
+  --optic:#DCEF3F;
+  --optic-ink:#2A3306;
+  --sun:#FF9F1C;
+  --sun-soft:#FFF0D2;
+  --win:#0B8551;
+  --win-soft:#C9F7DF;
+  --loss:#D0402A;
+  --loss-soft:#FFE0D8;
+  --warn:#A35F06;
+  --shadow:0 1px 2px rgba(12,42,37,.05), 0 12px 26px -18px rgba(9,132,118,.45);
   --radius:14px;
   --radius-sm:9px;
   --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
@@ -45,56 +45,56 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme: dark;
-    --ground:#0E1B19;
-    --surface:#182724;
-    --surface-2:#1E2E2A;
-    --sunk:#13211F;
-    --line:#2A3B36;
-    --line-soft:#213130;
-    --ink:#EAF2EF;
-    --ink-2:#BED0CA;
-    --muted:#8DA8A0;
-    --accent:#46CBB6;
-    --accent-bright:#5FE0CA;
-    --accent-ink:#052420;
-    --accent-soft:#12403A;
-    --optic:#D6E63C;
-    --optic-ink:#232A06;
-    --sun:#FFBC4A;
-    --sun-soft:#3A2C11;
-    --win:#4FD494;
-    --win-soft:#123A28;
-    --loss:#F0907E;
-    --loss-soft:#3E211C;
-    --warn:#E8AC52;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.8);
+    --ground:#0C1C19;
+    --surface:#152724;
+    --surface-2:#1C322D;
+    --sunk:#112220;
+    --line:#294039;
+    --line-soft:#1F332F;
+    --ink:#E9F5F1;
+    --ink-2:#BAD2CB;
+    --muted:#8AAAA0;
+    --accent:#3ED9C0;
+    --accent-bright:#5BF0D6;
+    --accent-ink:#032420;
+    --accent-soft:#12443C;
+    --optic:#DCEF3F;
+    --optic-ink:#222A05;
+    --sun:#FFB23F;
+    --sun-soft:#3E2D10;
+    --win:#4BE09B;
+    --win-soft:#0F3D29;
+    --loss:#FF9683;
+    --loss-soft:#42211B;
+    --warn:#F0B257;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 26px -18px rgba(0,0,0,.85);
   }
 }
 :root[data-theme="dark"]{
     color-scheme: dark;
-  --ground:#0E1B19;
-  --surface:#182724;
-  --surface-2:#1E2E2A;
-  --sunk:#13211F;
-  --line:#2A3B36;
-  --line-soft:#213130;
-  --ink:#EAF2EF;
-  --ink-2:#BED0CA;
-  --muted:#8DA8A0;
-  --accent:#46CBB6;
-  --accent-bright:#5FE0CA;
-  --accent-ink:#052420;
-  --accent-soft:#12403A;
-  --optic:#D6E63C;
-  --optic-ink:#232A06;
-  --sun:#FFBC4A;
-  --sun-soft:#3A2C11;
-  --win:#4FD494;
-  --win-soft:#123A28;
-  --loss:#F0907E;
-  --loss-soft:#3E211C;
-  --warn:#E8AC52;
-  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 24px -16px rgba(0,0,0,.8);
+  --ground:#0C1C19;
+  --surface:#152724;
+  --surface-2:#1C322D;
+  --sunk:#112220;
+  --line:#294039;
+  --line-soft:#1F332F;
+  --ink:#E9F5F1;
+  --ink-2:#BAD2CB;
+  --muted:#8AAAA0;
+  --accent:#3ED9C0;
+  --accent-bright:#5BF0D6;
+  --accent-ink:#032420;
+  --accent-soft:#12443C;
+  --optic:#DCEF3F;
+  --optic-ink:#222A05;
+  --sun:#FFB23F;
+  --sun-soft:#3E2D10;
+  --win:#4BE09B;
+  --win-soft:#0F3D29;
+  --loss:#FF9683;
+  --loss-soft:#42211B;
+  --warn:#F0B257;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 26px -18px rgba(0,0,0,.85);
 }
 
 *{box-sizing:border-box}
@@ -118,9 +118,10 @@ table{border-collapse:collapse}
   border-bottom:1px solid var(--line-soft);margin-inline:-16px;padding-inline:16px}
 .topbar-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .brand{display:flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-weight:800;
-  font-size:19px;letter-spacing:-.03em;margin-right:auto}
-.brand .ball{width:11px;height:11px;border-radius:50%;background:var(--optic);
-  box-shadow:0 0 0 2px color-mix(in srgb,var(--optic) 30%,transparent);align-self:center}
+  font-size:17px;letter-spacing:-.03em;margin-right:auto}
+.brand .ball{width:11px;height:11px;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#F2FF6B,var(--optic) 70%);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--optic) 34%,transparent);align-self:center}
 .sess-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px;min-height:22px}
 .sess-name{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-.01em}
 .sess-meta{font-size:12px;color:var(--muted);font-family:var(--f-data);letter-spacing:-.01em}
@@ -132,7 +133,8 @@ table{border-collapse:collapse}
   transition:background .12s ease,border-color .12s ease,transform .06s ease}
 .btn:active{transform:translateY(1px)}
 .btn:hover{background:var(--surface-2)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.btn.primary{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent-bright) 55%,var(--accent)));
+  border-color:var(--accent);color:var(--accent-ink);font-weight:600}
 .btn.primary:hover{filter:brightness(1.07)}
 .btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
 .btn.ghost:hover{background:var(--sunk);color:var(--ink)}
@@ -191,7 +193,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .teams{display:flex;flex-direction:column}
 .team{display:flex;align-items:center;gap:10px;padding:11px 12px}
 .team + .team{border-top:1px solid var(--line-soft)}
-.team.winner{background:linear-gradient(90deg,var(--win-soft),transparent 70%)}
+.team.winner{background:linear-gradient(90deg,var(--win-soft),transparent 78%)}
 .team-names{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .pname{font-weight:600;font-size:15px;line-height:1.25;overflow-wrap:anywhere;
   background:none;border:0;padding:0;text-align:left;color:inherit}
@@ -249,7 +251,7 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 .table td:nth-child(2){text-align:left;font-family:var(--f-body);font-weight:600}
 .table td:first-child{text-align:left;color:var(--muted);width:34px}
 .table tbody tr:nth-child(-n+3) td:first-child{color:var(--ink);font-weight:500}
-.table .lead td{background:linear-gradient(90deg,var(--accent-soft),transparent 60%)}
+.table .lead td{background:linear-gradient(90deg,var(--accent-soft),transparent 72%)}
 .table td.pos{color:var(--win)} .table td.neg{color:var(--loss)}
 .table tfoot td{border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 
@@ -310,10 +312,10 @@ select.input{appearance:none;background-image:linear-gradient(45deg,transparent 
 </head>
 <body>
 <div id="app"></div>
-<noscript><div style="padding:32px 16px;font-family:system-ui">PickleStack needs JavaScript to build the rounds and keep score.</div></noscript>
+<noscript><div style="padding:32px 16px;font-family:system-ui">House of Picklers needs JavaScript to build the rounds and keep score.</div></noscript>
 <script>
 /* ===========================================================
-   PickleStack — rotation engine
+   House of Picklers — rotation engine
    Builds rounds that maximise how many different people each
    player partners with and plays against, while keeping games
    played and sit-outs even across the roster.
@@ -572,7 +574,7 @@ const Sched = (function () {
 </script>
 <script>
 /* ===========================================================
-   PickleStack — state, standings and persistence
+   House of Picklers — state, standings and persistence
    Saves to this device immediately; when the page runs as a
    published artifact it also mirrors to the shared store so
    everyone at the courts sees the same scoreboard.
@@ -1273,7 +1275,7 @@ const Store = (function () {
       }
       const s = parsed && parsed.session ? parsed.session : parsed;
       if (!s || !Array.isArray(s.players) || !Array.isArray(s.rounds)) {
-        return { error: "No PickleStack session found in that file." };
+        return { error: "No House of Picklers session found in that file." };
       }
       s.id = s.id || uid("s");
       s.rev = Date.now();
@@ -1304,14 +1306,14 @@ const Store = (function () {
 </script>
 <script>
 /* ===========================================================
-   PickleStack — interface
+   House of Picklers — interface
    =========================================================== */
 (function () {
   "use strict";
 
   /* Stamped by build.py — so you can tell at a glance whether the page
      you are looking at is the one that was last published. */
-  const BUILD = "2026-09-14 12:57";
+  const BUILD = "2026-09-14 13:02";
 
   const root = document.getElementById("app");
   let sheet = null;          // {kind, arg}
@@ -1434,7 +1436,7 @@ const Store = (function () {
     return '' +
       '<header class="topbar">' +
         '<div class="topbar-row">' +
-          '<div class="brand"><span class="ball"></span>PickleStack</div>' +
+          '<div class="brand"><span class="ball"></span>House of Picklers</div>' +
           syncPill() +
           '<button class="icon-btn" data-act="sheet:sessions" aria-label="Switch session" title="Sessions">' + iconStack() + '</button>' +
           '<button class="icon-btn" data-act="sheet:settings" aria-label="Session settings" title="Settings">' + iconGear() + '</button>' +
@@ -1487,7 +1489,7 @@ const Store = (function () {
     return '<div class="hero">' +
       '<div class="court-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>' +
       '<h1>Every name in, every pairing out.</h1>' +
-      '<p>Type in who showed up. PickleStack builds each round so people keep meeting new partners and new opponents, then keeps the table honest as the scores come in.</p>' +
+      '<p>Type in who showed up. House of Picklers builds each round so people keep meeting new partners and new opponents, then keeps the table honest as the scores come in.</p>' +
       '<div class="row" style="margin-top:18px;gap:10px;flex-wrap:wrap">' +
         '<button class="btn primary" data-act="sheet:new">Start a session</button>' +
         '<button class="btn" data-act="sheet:import">Open a saved file</button>' +
@@ -2109,12 +2111,12 @@ const Store = (function () {
           '<button class="btn danger" data-act="deleteSession:' + sess.id + '">Delete session</button>' +
         '</div>' +
         '<p class="mono muted" style="font-size:11.5px;text-align:center;margin-top:6px">' +
-          'PickleStack · build ' + BUILD + '</p>' +
+          'House of Picklers · build ' + BUILD + '</p>' +
       '</div>');
   }
 
   function importSheet() {
-    return sheetShell("Open a session file", "Paste the contents of a PickleStack file, or pick it from your device.",
+    return sheetShell("Open a session file", "Paste the contents of a House of Picklers file, or pick it from your device.",
       '<div class="stack">' +
         '<input type="file" accept="application/json,.json" class="input" id="imp-file" data-act="importFile">' +
         '<textarea class="input" id="imp-text" rows="6" data-focus-key="imp-text" placeholder="…or paste the JSON here"></textarea>' +
@@ -2373,12 +2375,12 @@ const Store = (function () {
     }
     if (cmd === "export") {
       const sess2 = Store.session();
-      const fname = (sess2 ? sess2.name.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase() : "picklestack") + ".json";
+      const fname = (sess2 ? sess2.name.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase() : "house-of-picklers") + ".json";
       saveFile(fname, Store.exportJSON());
       return;
     }
     if (cmd === "backup") {
-      saveFile("picklestack-backup-" + Store.todayISO() + ".json", Store.exportAll());
+      saveFile("house-of-picklers-backup-" + Store.todayISO() + ".json", Store.exportAll());
       return;
     }
     if (cmd === "importText") {

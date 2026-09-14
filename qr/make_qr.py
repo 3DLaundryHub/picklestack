@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate the PickleStack QR code and a printable card to pin up at the courts.
+"""Generate the House of Picklers QR code and a printable card to pin up at the courts.
 
     python3 qr/make_qr.py
 
-Writes qr/picklestack-qr.png (the code on its own) and
-qr/picklestack-card.png (the code with the address, sized for A6/4x6 print).
+Writes qr/house-of-picklers-qr.png (the code on its own) and
+qr/house-of-picklers-card.png (the code with the address, sized for A6/4x6 print).
 Re-run it if the site ever moves — change URL below and everything regenerates.
 """
 import pathlib
@@ -19,9 +19,9 @@ URL = "https://3dlaundryhub.github.io/picklestack/"
 SHOW_URL = False
 HERE = pathlib.Path(__file__).parent
 
-INK = (14, 39, 35)        # app --ink, near-black with a green cast
-TEAL = (11, 131, 117)     # app --accent
-MUTED = (93, 125, 117)    # app --muted
+INK = (12, 42, 37)        # app --ink, near-black with a green cast
+TEAL = (9, 132, 118)      # app --accent
+MUTED = (84, 120, 110)    # app --muted
 PAPER = (255, 255, 255)
 
 def font(name, size):
@@ -42,16 +42,16 @@ qr = qrcode.QRCode(version=None, error_correction=ERROR_CORRECT_Q, box_size=20, 
 qr.add_data(URL)
 qr.make(fit=True)
 code = qr.make_image(fill_color=INK, back_color=PAPER).convert("RGB")
-code.save(HERE / "picklestack-qr.png")
+code.save(HERE / "house-of-picklers-qr.png")
 
 # --- printable card ----------------------------------------------------------
 W, H = 1200, 1600
 card = Image.new("RGB", (W, H), PAPER)
 d = ImageDraw.Draw(card)
 
-d.rounded_rectangle([24, 24, W - 24, H - 24], radius=36, outline=(205, 228, 222), width=3)
+d.rounded_rectangle([24, 24, W - 24, H - 24], radius=36, outline=(185, 230, 218), width=3)
 
-title = font("Arial Bold", 96)
+title = font("Arial Bold", 82)
 sub = font("Arial", 40)
 addr = font("Arial Bold", 34)
 foot = font("Arial", 34)
@@ -60,7 +60,7 @@ def centre(text, f, y, fill):
     w = d.textbbox((0, 0), text, font=f)[2]
     d.text(((W - w) / 2, y), text, font=f, fill=fill)
 
-centre("PickleStack", title, 140, INK)
+centre("House of Picklers", title, 150, INK)
 centre("Pickleball rounds, scores & standings", sub, 268, MUTED)
 
 size = 820
@@ -74,11 +74,11 @@ if SHOW_URL:
 centre("Scan to open. No app, no sign-in.", foot, y, MUTED)
 
 # an optic-yellow rule, the one flash of colour the app uses for a live court
-d.rounded_rectangle([(W - 180) / 2, y + 96, (W + 180) / 2, y + 106], radius=5, fill=(214, 230, 60))
+d.rounded_rectangle([(W - 180) / 2, y + 96, (W + 180) / 2, y + 106], radius=5, fill=(220, 239, 63))
 
-card.save(HERE / "picklestack-card.png")
+card.save(HERE / "house-of-picklers-card.png")
 
-for p in ("picklestack-qr.png", "picklestack-card.png"):
+for p in ("house-of-picklers-qr.png", "house-of-picklers-card.png"):
     f = HERE / p
     print("%-26s %5.0f KB  %s" % (p, f.stat().st_size / 1024, Image.open(f).size))
 print("encodes: %s" % URL)
